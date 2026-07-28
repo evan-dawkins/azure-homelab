@@ -36,6 +36,4 @@ practical decision-making that comes up in a Help Desk role.
 - #011 — Monitoring & alert configuration
 
 ## What I'd Improve With More Time
-[fill in — 1-2 honest things you'd do differently or add. This 
-question comes up in interviews and a thoughtful answer beats a 
-perfect project.]
+I'd want to experience with creating a virtual machine but my MacBook unfortunately doesn't have enough RAM to handle that.
