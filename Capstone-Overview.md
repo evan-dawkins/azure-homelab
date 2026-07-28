@@ -36,4 +36,4 @@ practical decision-making that comes up in a Help Desk role.
 - #011 — Monitoring & alert configuration
 
 ## What I'd Improve With More Time
-I'd want to experience with creating a virtual machine but my MacBook unfortunately doesn't have enough RAM to handle that.
+I'd deploy an actual Azure VM to test NSG rule enforcement directly, rather than only configuring rules and reading Azure's warnings. My local machine has RAM constraints for heavy local virtualization, but Azure VMs run cloud-side. This is a next step I'd pursue with a slightly larger compute budget.
