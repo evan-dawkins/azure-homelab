@@ -66,49 +66,68 @@ Azure Subscription (Pay As You Go)
 ## Implementation Summary
 
 ### 1. Environment Setup
-✅ Created Azure subscription and budget alert ($5/mo at 80% threshold), and resource group `rg-homelab-01` before provisioning any resources.
-<img width="736" height="377" alt="01-resource-group" src="https://github.com/user-attachments/assets/febfb664-2378-4b9c-9f91-e1d0c83ec99d" />
+Created Azure subscription and budget alert ($5/mo at 80% threshold), and resource group `rg-homelab-01` before provisioning any resources.
+
+<img width="550" alt="Resource group created in Azure" src="https://github.com/user-attachments/assets/febfb664-2378-4b9c-9f91-e1d0c83ec99d" />
+
+<br>
 
 ### 2. User Provisioning
-✅ Created user John Doe in Microsoft Entra ID with no default group or role membership, following least-privilege principles: access is granted deliberately, not automatically at account creation.
-<img width="1463" height="759" alt="02-user-created" src="https://github.com/user-attachments/assets/a203cea1-ba3d-4db1-968f-c8865aa0bdf0" />
+Created user John Doe in Microsoft Entra ID with no default group or role membership, following least-privilege principles: access is granted deliberately, not automatically at account creation.
 
+<img width="600" alt="User created in Microsoft Entra ID" src="https://github.com/user-attachments/assets/a203cea1-ba3d-4db1-968f-c8865aa0bdf0" />
+
+<br>
 
 ### 3. Group-Based Access Management
-✅ Created security group `Help-Desk-Team` and added John Doe as a member, rather than assigning permissions to his account directly.
-<img width="1469" height="746" alt="03-group-membership" src="https://github.com/user-attachments/assets/291b7001-9f97-4913-9a35-a1ab09af2d7d" />
+Created security group `Help-Desk-Team` and added John Doe as a member, rather than assigning permissions to his account directly.
 
+<img width="600" alt="Help-Desk-Team group membership" src="https://github.com/user-attachments/assets/291b7001-9f97-4913-9a35-a1ab09af2d7d" />
+
+<br>
 
 ### 4. RBAC Role Assignment
-✅ Assigned the **Reader** role to `Help-Desk-Team`, scoped to the resource group (not the subscription), and verified John Doe inherits access through group membership via Access Control (IAM) → Check Access.
-<img width="877" height="705" alt="04a-rbac-role-assignment" src="https://github.com/user-attachments/assets/50c8fd40-3a5f-4e23-9ccb-a4f7f3fd70f7" />
-<img width="853" height="694" alt="04b-check-access-verification" src="https://github.com/user-attachments/assets/7161d91c-39bd-48a5-acf0-045a7407a673" />
+Assigned the **Reader** role to `Help-Desk-Team`, scoped to the resource group (not the subscription), and verified John Doe inherits access through group membership via Access Control (IAM) → Check Access.
 
+<img width="450" alt="Reader role assigned to Help-Desk-Team" src="https://github.com/user-attachments/assets/50c8fd40-3a5f-4e23-9ccb-a4f7f3fd70f7" />
+<img width="450" alt="Check Access verification for inherited role" src="https://github.com/user-attachments/assets/7161d91c-39bd-48a5-acf0-045a7407a673" />
+
+<br>
 
 ### 5. Scaling the Access Model
-✅ Onboarded a second user, Jane Smith, and added her to the existing `Help-Desk-Team` group, confirming the group-based model scales: new hires get consistent access in one step.
-<img width="1468" height="748" alt="05-group-two-members" src="https://github.com/user-attachments/assets/e90a7c0a-b477-405d-9368-d8392aeaed52" />
+Onboarded a second user, Jane Smith, and added her to the existing `Help-Desk-Team` group, confirming the group-based model scales: new hires get consistent access in one step.
 
+<img width="600" alt="Second user added to existing group" src="https://github.com/user-attachments/assets/e90a7c0a-b477-405d-9368-d8392aeaed52" />
+
+<br>
 
 ### 6. Storage Account Deployment
-✅ Deployed storage account `homelabstorage01` (Standard performance, LRS replication, anonymous blob access disabled, secure transfer enabled) and confirmed file upload to a private blob container.
-<img width="1915" height="959" alt="06-blob-upload" src="https://github.com/user-attachments/assets/43418c1a-9f0f-48fb-88e4-d7b720237566" />
+Deployed storage account `homelabstorage01` (Standard performance, LRS replication, anonymous blob access disabled, secure transfer enabled) and confirmed file upload to a private blob container.
 
+<img width="650" alt="File uploaded to private blob container" src="https://github.com/user-attachments/assets/43418c1a-9f0f-48fb-88e4-d7b720237566" />
+
+<br>
 
 ### 7. Data-Level Access Control
-✅ Assigned **Storage Blob Data Reader** to `Help-Desk-Team`, scoped to the storage account, demonstrating the distinction between resource-level visibility and data-level access.
-<img width="1918" height="958" alt="07-storage-rbac" src="https://github.com/user-attachments/assets/f78bb9e4-0613-453c-9419-3212176293e5" />
+Assigned **Storage Blob Data Reader** to `Help-Desk-Team`, scoped to the storage account, demonstrating the distinction between resource-level visibility and data-level access.
 
+<img width="650" alt="Storage Blob Data Reader role assignment" src="https://github.com/user-attachments/assets/f78bb9e4-0613-453c-9419-3212176293e5" />
+
+<br>
 
 ### 8. Network Security Configuration
-✅ Created NSG `nsg-homelab-01` with an inbound rule denying RDP (port 3389) from any source, a baseline defense against the constant internet-wide scanning for open RDP ports.
-<img width="1913" height="919" alt="08-nsg-rule-warnings" src="https://github.com/user-attachments/assets/260c4cc6-f4d1-4851-a8a9-bd7cd2d1e14c" />
-<img width="583" height="918" alt="08b-nsg-warnings-detail" src="https://github.com/user-attachments/assets/558bee57-8f8a-4f29-84c6-e8070cc4d71e" />
-> 🔧 See [Troubleshooting Log](#troubleshooting-log) for the rule-priority issue this surfaced.
+Created NSG `nsg-homelab-01` with an inbound rule denying RDP (port 3389) from any source, a baseline defense against the constant internet-wide scanning for open RDP ports.
+> See [Troubleshooting Simulations](#troubleshooting-simulations) for the rule-priority scenario this setup enabled.
+
+<img width="600" alt="NSG deny-RDP rule with scope warnings" src="https://github.com/user-attachments/assets/260c4cc6-f4d1-4851-a8a9-bd7cd2d1e14c" />
+<img width="280" alt="NSG warning detail" src="https://github.com/user-attachments/assets/558bee57-8f8a-4f29-84c6-e8070cc4d71e" />
+
+<br>
 
 ### 9. Monitoring & Alerting
-✅ Configured an alert rule to notify by email whenever an administrative change occurs in `rg-homelab-01`, rather than manually checking activity logs.
-<img width="1914" height="958" alt="11-alert-rule-active" src="https://github.com/user-attachments/assets/03885957-f8e3-4587-bd90-d86fe980abeb" />
+Configured an alert rule to notify by email whenever an administrative change occurs in `rg-homelab-01`, rather than manually checking activity logs.
+
+<img width="650" alt="Active alert rule configured" src="https://github.com/user-attachments/assets/03885957-f8e3-4587-bd90-d86fe980abeb" />
 
 
 ## Troubleshooting Simulations
