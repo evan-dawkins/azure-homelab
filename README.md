@@ -108,7 +108,7 @@ Azure Subscription (Pay As You Go)
 
 ### 9. Monitoring & Alerting
 ✅ Configured an alert rule to notify by email whenever an administrative change occurs in `rg-homelab-01`, rather than manually checking activity logs.
-<img width="1916" height="957" alt="09-nsg-priority-troubleshoot" src="https://github.com/user-attachments/assets/7558b29d-51cc-45a8-a703-b936047b181e" />
+<img width="1914" height="958" alt="11-alert-rule-active" src="https://github.com/user-attachments/assets/03885957-f8e3-4587-bd90-d86fe980abeb" />
 
 
 ## Troubleshooting Simulations
